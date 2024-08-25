@@ -1,0 +1,48 @@
+---
+# https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-20-04
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
+- name: Install requirements
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+    state: present
+    update_cache: yes
+  become: true
+
+
+# - name: Add Docker GPG apt Key
+# # This is unsupported on newer versions of Ubuntu. https://stackoverflow.com/questions/71585303/how-can-i-manage-keyring-files-in-trusted-gpg-d-with-ansible-playbook-since-apt
+#   apt_key:
+#     url: https://download.docker.com/linux/ubuntu/gpg
+#     keyring: /etc/apt/keyrings/docker.asc
+#     state: present
+#   become: true
+
+- name: Add Docker GPG key
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: '0644'
+    force: true
+  become: true
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb [arch={{ host_arch }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ host_version_codename }} stable
+    state: present
+  become: true
+
+- name: Install Docker
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present
+    update_cache: yes
+  become: true
+

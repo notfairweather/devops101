@@ -1,0 +1,33 @@
+---
+
+# https://stackoverflow.com/questions/30226113/ansible-ssh-prompt-known-hosts-issue
+- name: Store known hosts of 'all' the hosts in the inventory file
+  hosts: localhost
+  connection: local
+
+  vars:
+    ssh_known_hosts_command: "ssh-keyscan -T 10"
+    ssh_known_hosts_file: "{{ lookup('env','HOME') + '/.ssh/known_hosts' }}"
+    ssh_known_hosts: "{{ groups['all'] }}"
+
+  tasks:
+
+  - name: For each host, scan for its ssh public key
+    shell: "ssh-keyscan -T 10 {{ hostvars[item]['ansible_host'] }} | grep ssh-ed25519"
+    with_items: "{{ ssh_known_hosts }}"
+    register: ssh_known_host_results
+    ignore_errors: yes
+
+  - name: Add/update the public key in the '{{ ssh_known_hosts_file }}'
+    known_hosts:
+      name: "{{ hostvars[item.item]['ansible_host'] }}"
+      key: "{{ item.stdout }}"
+      path: "{{ ssh_known_hosts_file }}"
+    loop: "{{ ssh_known_host_results.results }}"
+    loop_control:
+      label: "{{ item.item }}"
+
+- name: Initialise task managers
+  hosts: task_managers
+  roles:
+    - vikunja

@@ -1,0 +1,6 @@
+task_managers: # this is the host group name
+  hosts:
+    ec2_server: # name of the single host
+      ansible_host: # TODO - add your EC2 IP address here
+      ansible_ssh_private_key_file: /root/.ssh/ssh-key
+      ansible_user: ubuntu

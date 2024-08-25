@@ -1,0 +1,6 @@
+
+ec2_ami = "ami-0eac975a54dfee8cb" # Ubuntu 24.04 LTS, ARM
+ec2_ssh_pubkey = "ssh-rsa <insert pubkey here> notfairweather@ubuntu"
+ec2_ssh_inbound_ip = "<your public IP here>"
+
+s3_bucket_suffix = "<put something unique here>"

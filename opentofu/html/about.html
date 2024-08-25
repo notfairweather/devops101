@@ -1,0 +1,169 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>LogEverything | About</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+                        
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+                        
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+     <!-- Add fancyBox main JS and CSS files -->
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt="" height="60px"/></a>
+					 </div>
+					 <div class="menu">
+						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
+						    <ul class="nav" id="nav">
+						    	<li><a href="shop.html">Shop</a></li>
+						    	<li><a href="about.html">About</a></li>
+								<div class="clear"></div>
+							</ul>
+							<script type="text/javascript" src="js/responsive-nav.js"></script>
+				    </div>							
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="js/classie.js"></script>
+						<script src="js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				    <ul class="icon1 sub-icon1 profile_img">
+					 <li><a class="active-icon c1" href="#"> </a>
+						<ul class="sub-icon1 list">
+						  <div class="product_control_buttons">
+						  	<a href="#"><img src="images/edit.png" alt=""/></a>
+						  		<a href="#"><img src="images/close_edit.png" alt=""/></a>
+						  </div>
+						   <div class="clear"></div>
+						  <li class="list_img"><img src="images/disk.jpg" alt="" height="25rem"/></li>
+						  <li class="list_desc"><h4><a href="#">1 ronnabyte data storage</a></h4></li>
+						  <div class="clear"></div>
+						</ul>
+					 </li>
+				   </ul>
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	</div>
+     <div class="main">
+      <div class="shop_top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 team_bottom">
+				  <ul class="team_list">
+					<h4>Credits</h4>
+					<li><p>Site template from <a href="https://www.free-css.com/free-css-templates/page183/snowboarding">Free CSS</a></p></li>
+		            <li><p>Space - Photo by <a href="https://unsplash.com/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">NASA</a> on <a href="https://unsplash.com/photos/photo-of-outer-space-Q1p7bh3SHj8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Printer - Photo by <a href="https://unsplash.com/@alrivarola?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ana Rivarola</a> on <a href="https://unsplash.com/photos/grayscale-photo-of-gray-and-black-metal-machine-3QN3BbJs3jM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Computer - Photo by <a href="https://unsplash.com/@markusspiske?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Markus Spiske</a> on <a href="https://unsplash.com/photos/black-and-gray-laptop-computer-turned-on-FXFz-sW0uwo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Fryer - Photo by <a href="https://unsplash.com/@winedharma?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Wine Dharma</a> on <a href="https://unsplash.com/photos/slice-potatoes-cook-in-deep-fryer-7ZU8XLk1yU4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Iron - Photo by <a href="https://unsplash.com/@marcosramirez_x?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcos Ramírez</a> on <a href="https://unsplash.com/photos/white-corded-clothes-steam-iron-JLm23IqaqYo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Wheelbarrow - Photo by <a href="https://unsplash.com/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Annie Spratt</a> on <a href="https://unsplash.com/photos/brown-wooden-boat-on-green-grass-field-during-daytime-j8xUK4ijoj0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Bag - Photo by <a href="https://unsplash.com/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Annie Spratt</a> on <a href="https://unsplash.com/photos/brown-wooden-boat-on-green-grass-field-during-daytime-j8xUK4ijoj0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Brush - Photo by <a href="https://unsplash.com/@edznorton?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Edz Norton</a> on <a href="https://unsplash.com/photos/brown-and-silver-makeup-brush-hSC_fT5T1rw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Floppy - Photo by <a href="https://unsplash.com/@0asa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Vincent Botta</a> on <a href="https://unsplash.com/photos/black-floppy-diskette-bv_rJXpNU9I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Cast iron pot - Photo by <a href="https://unsplash.com/@florenciaviadana?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Florencia Viadana</a> on <a href="https://unsplash.com/photos/red-cooking-pot-OUNRxump_t4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+		            <li><p>Fire - Photo by <a href="https://unsplash.com/@steve228uk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Stephen Radford</a> on <a href="https://unsplash.com/photos/photo-of-burning-house-hLUTRzcVkqg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p></li>
+
+		          </ul>
+				</div>
+				<div class="col-md-8">
+					<ul class="team_list">
+					 <h4>Why are you logging everything?</h4>
+					 <p class="m_7">Good memes, mostly. This site is part of the demo for a DevOps 101 presentation.</p>
+		             <img src="images/disk.jpg" class="img-responsive" alt=""/>
+		          </ul>
+				</div>
+			</div>
+		</div>
+	   </div>
+	  </div>
+	  <div class="footer">
+		<div class="container">
+			<div class="row footer_bottom">
+				<div class="copy">
+				   <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+				</div>
+			   </div>
+		</div>
+	</div>
+</body>	
+</html>

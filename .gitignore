@@ -1,0 +1,11 @@
+
+# terraform/opentofu related
+.terraform/
+.terraform*
+terraform.tfstate*
+
+# ignore files that need to be templated
+.secrets/aws.env
+.secrets/ssh-key
+opentofu/variables.tfvars
+

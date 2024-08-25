@@ -1,0 +1,5 @@
+vikunja_public_url: "http://{{ ansible_host }}:3456"
+
+host_arch: arm64
+host_version_codename: noble #ubuntu 24.04 LTS
+

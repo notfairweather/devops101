@@ -1,0 +1,50 @@
+---
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_tasks_module.html
+- name: Install docker
+  include_tasks:
+    file: install_docker.yaml
+
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+    owner: 1000
+  become: true
+  loop:
+    - "{{ vikunja_root_directory }}"
+    - "{{ vikunja_root_directory }}/files"
+    - "{{ vikunja_root_directory }}/db"
+
+- name: Deploy files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ vikunja_root_directory }}/{{ item }}"
+    owner: 1000
+  loop:
+    - vikunja.docker-compose.yml
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html
+# https://docs.ansible.com/ansible/latest/collections/community/general/random_string_lookup.html
+- name: Deploy templates
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: "{{ vikunja_root_directory }}/{{ item }}"
+    owner: 1000
+    force: no
+  loop:
+    - .env
+
+- name: Start docker-compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ vikunja_root_directory }}"
+    files: vikunja.docker-compose.yml
+  become: true
+  register: output
+
+- name: Print out URL
+  debug:
+    msg: "URL: {{ vikunja_public_url }}"
