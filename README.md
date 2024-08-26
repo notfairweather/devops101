@@ -8,7 +8,7 @@ The code in this repo does the following:
 
 1. Helps set up the variables required to run the code
 2. Pulls/builds the required container images
-2. Runs OpenTofu to create assets - AWS S3 bucket and AWS EC2 instance
+2. Runs OpenTofu to create assets - AWS S3 bucket (with static website) and AWS EC2 instance
 4. Runs Ansible to install [Vikunja](https://vikunja.io/)
 
 Pre-requisites: 
@@ -54,8 +54,6 @@ sudo docker run --rm -it --workdir=/srv/workspace \
   --mount type=bind,source=$PWD/opentofu,target=/srv/workspace \
   ghcr.io/opentofu/opentofu:latest \
   init
-
-cd ..
 ```
 
 Ref: [OpenTofu docs on Docker](https://opentofu.org/docs/intro/install/docker/)
